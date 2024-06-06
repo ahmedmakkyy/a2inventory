@@ -13,8 +13,20 @@ app.use('/api/orders', order_route_1.OrderRoute);
 // Root URL welcome message
 app.get('/', (req, res) => {
     res.json({
+        message: "Welcome to API Service"
+    });
+});
+// Route error
+app.get('/api', (req, res) => {
+    res.json({
         success: true,
-        message: "Welcome to the Product and Order API service"
+        message: "API Root"
+    });
+});
+app.use((req, res) => {
+    res.status(404).json({
+        success: false,
+        message: "Route not found"
     });
 });
 exports.default = app;
