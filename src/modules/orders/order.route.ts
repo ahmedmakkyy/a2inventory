@@ -1,0 +1,11 @@
+// order.route.ts
+import express from 'express';
+import { OrderController } from './order.controller';
+
+
+const router = express.Router();
+
+router.post('/', OrderController.addOrder);
+router.get('/', OrderController.getAllOrders);
+
+export const OrderRoute = router;
